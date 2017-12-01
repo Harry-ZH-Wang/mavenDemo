@@ -33,10 +33,5 @@ public class test01 <T extends Father,V extends T> {
 	
 	
 	
-	public static void main(String[] args) {
-		
-		test01 t = new test01(new Father(),new Father());
-		t.test123();
-	}
-
+	
 }

@@ -9,13 +9,13 @@
 		</layout>
 		<filter class="org.apache.log4j.varia.LevelRangeFilter">
 			<param name="levelMin" value="STDOUT"></param>
-			<param name="levelMax" value="STDOUT"></param>
+			<param name="levelMax" value="STDOUT"></param>	
 		</filter>
 	</appender>
 
 	<!-- DEBUG 系统调试性日志-->
 	<appender name="DEBUG" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="${Spring.root}/logs/sh-debug.log"/>
+		<param name="File" value="${mavenDemo.root}/logs/sh-debug.log"/>
 		<param name="Append" value="true"/>
 		<param name="MaxFileSize" value="10240KB"/>
 		<param name="MaxBackupIndex" value="50"/>
@@ -32,7 +32,7 @@
 
 	<!-- INFO 系统信息日志-->
 	<appender name="INFO" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="${Spring.root}/logs/sh-info.log"/>
+		<param name="File" value="${mavenDemo.root}/logs/sh-info.log"/>
 		<param name="Append" value="true"/>
 		<param name="MaxFileSize" value="10240KB"/>
 		<param name="MaxBackupIndex" value="50"/>
@@ -49,7 +49,7 @@
 
 	<!-- WARN 系统警告日志-->
 	<appender name="WARN" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="${Spring.root}/logs/sh-warn.log"/>
+		<param name="File" value="${mavenDemo.root}/logs/sh-warn.log"/>
 		<param name="Append" value="true"/>
 		<param name="MaxFileSize" value="10240KB"/>
 		<param name="MaxBackupIndex" value="50"/>
@@ -66,7 +66,7 @@
 
 	<!-- ERROR 系统错误日志-->
 	<appender name="ERROR" class="org.apache.log4j.RollingFileAppender">
-		<param name="File" value="${Spring.root}/logs/sh-error.log"/>
+		<param name="File" value="${mavenDemo.root}/logs/sh-error.log"/>
 		<param name="Append" value="true"/>
 		<param name="MaxFileSize" value="10240KB"/>
 		<param name="MaxBackupIndex" value="50"/>
