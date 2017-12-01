@@ -1,0 +1,22 @@
+.btnClass{
+    list-style-type: none;
+    padding-top: 5%;
+}
+.abtnClass{
+    width: 20%;
+    margin-left: 5%;
+    margin-top: 10%
+}
+.fromLi{
+    list-style-type: none;
+    margin-top:5%;
+
+}
+.inputClass{
+    margin-left: 15%;
+}
+
+.formA{
+    margin-left: 3%;
+    width: 100px;
+}

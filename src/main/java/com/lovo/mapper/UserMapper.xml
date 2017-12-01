@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lovo.mapper.UserMapper">
+
+	<insert id="batchAddUser" parameterType="java.util.List">
+		insert into t_user (u_id, u_name,u_sex,u_age)
+		(select
+		seq_t_user.nextval,temp.* from (
+		<foreach collection="list" item="user" separator="union all">
+			select
+			#{user.name,jdbcType = VARCHAR} u_name,
+			#{user.sex ,jdbcType = VARCHAR} u_sex,
+			#{user.age,jdbcType = NUMERIC} u_age
+			from dual
+		</foreach>
+		) temp
+		)
+
+	</insert>
+
+</mapper>

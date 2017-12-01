@@ -1,0 +1,51 @@
+.HDiv{
+    margin-left: 40%;
+    margin-top: 2.5%;
+}
+.tableDiv{
+   margin-left: 15%;
+}
+.buttonDiv{
+    margin-left: 15%;
+    margin-top: 2%;
+}
+#ontime{
+    margin-left: 5%;
+}
+#setmeal{
+    margin-left: 5%;
+}
+.btn1Div{
+    margin-top: 2%;
+}
+#delbtn{
+    margin-left: 7%;
+}
+#dredgebtn{
+    margin-left: 7%;
+}
+#updatebtn{
+    margin-left: 1%;
+}
+#stopbtn{
+    margin-top: 2%;
+    margin-left: 1%;
+}
+.textDiv{
+    margin-left: 50%;
+    /* margin-top: -10.4%; */
+}
+.label{
+    font-size: 15px;
+
+}
+.labelDiv{
+    margin-top: 3%;
+}
+#selectBtn{
+    margin-left: 18%;
+}
+#selectIp{
+	margin-top:50%;
+	padding:30%;
+}

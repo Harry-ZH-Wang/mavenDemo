@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.lovo.mapper.ShopMapper">
+
+
+	<resultMap type="ShopBean" id="shop">
+		<id property="id" column="id" javaType="java.lang.Long"/>
+		<result property="shopName" column="shop_name" javaType="String"/>
+		<collection property="commodities" javaType="java.util.List" select="getCommById" column="{SELECTID=id}"></collection>
+			
+	</resultMap>
+	
+	<resultMap type="CommodityBean" id="commodity">
+		<id property="id" column="id" javaType="java.lang.Long"/>
+		<result property="commodityName" column="commodity_name" javaType="String"/>
+		<result property="commodityPrice" column="commodity_price" javaType="String"/>
+		<result property="shopId" column="fk_shop" javaType="java.lang.Long"/>
+	</resultMap>
+	
+	
+	
+	<select id ="findShopByName" resultMap="shop"  parameterType="ShopBean">
+		select id,shop_name,id as selectid from t_shop 
+		<where>
+			<if test="shop.shopName!=null &amp;&amp;shop.shopName!=''">
+				and shop_name like '%'||#{shop.shopName}||'%'
+			</if>
+		</where>
+	</select>
+		
+	<select id ="getCommById" resultMap="commodity" >
+		select id,commodity_name,commodity_price,fk_shop from t_commodity 
+	<where>
+			<if test="SELECTID!=0">
+				and fk_shop = #{SELECTID}
+			</if>
+		</where>
+	</select>
+
+	<insert id="shopAddCommodities" parameterType="ShopBean" >
+		<!-- 获取插入时主键 -->
+		<selectKey resultType = "java.lang.Long" order="BEFORE" keyProperty="id">
+		select sqe_shop.nextval as id from dual
+		</selectKey>
+		insert into t_shop (id,shop_name) values (#{id},#{shopName})
+	</insert>
+	
+		<insert id="addCommodity" parameterType="java.util.List">
+		insert into t_commodity (id, commodity_name,commodity_price,fk_shop)
+		(select
+		sqe_commodity.nextval,temp.* from (
+		<foreach collection="list" item="comm" separator="union all">
+			select
+			#{comm.commodityName,jdbcType = VARCHAR} commodity_name,
+			#{comm.commodityPrice ,jdbcType = VARCHAR} commodity_price,
+			#{comm.shopId,jdbcType = NUMERIC} fk_shop
+			from dual
+		</foreach>
+		) temp
+		)
+
+	</insert>
+
+</mapper>

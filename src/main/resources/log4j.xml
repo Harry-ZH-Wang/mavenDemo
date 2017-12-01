@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration>
+	<!-- STDOUT 系统启动日志 -->
+	<!-- appender 给我们的日志定义一个输出目的地 -->
+	<appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%c %d{yyyy-MM-dd HH:mm:ss} --%p --%m%n"></param>
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="STDOUT"></param>
+			<param name="levelMax" value="STDOUT"></param>
+		</filter>
+	</appender>
+
+	<!-- DEBUG 系统调试性日志-->
+	<appender name="DEBUG" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${Spring.root}/logs/sh-debug.log"/>
+		<param name="Append" value="true"/>
+		<param name="MaxFileSize" value="10240KB"/>
+		<param name="MaxBackupIndex" value="50"/>
+		
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%c %d{yyyy-MM-dd HH:mm:ss} --%p --%m%n"></param>
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="DEBUG"></param>
+			<param name="levelMax" value="DEBUG"></param>
+		</filter>
+	</appender>
+
+
+	<!-- INFO 系统信息日志-->
+	<appender name="INFO" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${Spring.root}/logs/sh-info.log"/>
+		<param name="Append" value="true"/>
+		<param name="MaxFileSize" value="10240KB"/>
+		<param name="MaxBackupIndex" value="50"/>
+		
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%c %d{yyyy-MM-dd HH:mm:ss} --%p --%m%n"></param>
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="INFO"></param>
+			<param name="levelMax" value="INFO"></param>
+		</filter>
+	</appender>
+
+
+	<!-- WARN 系统警告日志-->
+	<appender name="WARN" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${Spring.root}/logs/sh-warn.log"/>
+		<param name="Append" value="true"/>
+		<param name="MaxFileSize" value="10240KB"/>
+		<param name="MaxBackupIndex" value="50"/>
+		
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%c %d{yyyy-MM-dd HH:mm:ss} --%p --%m%n"></param>
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="WARN"></param>
+			<param name="levelMax" value="WARN"></param>
+		</filter>
+	</appender>
+
+
+	<!-- ERROR 系统错误日志-->
+	<appender name="ERROR" class="org.apache.log4j.RollingFileAppender">
+		<param name="File" value="${Spring.root}/logs/sh-error.log"/>
+		<param name="Append" value="true"/>
+		<param name="MaxFileSize" value="10240KB"/>
+		<param name="MaxBackupIndex" value="50"/>
+		
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%c %d{yyyy-MM-dd HH:mm:ss} --%p --%m%n"></param>
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="ERROR"></param>
+			<param name="levelMax" value="ERROR"></param>
+		</filter>
+	</appender>
+
+
+	<root>
+		<priority value="DEBUG"></priority>
+		<appender-ref ref="STDOUT"/>
+		<appender-ref ref="DEBUG"/>
+		<appender-ref ref="INFO"/>
+		<appender-ref ref="WARN"/>
+		<appender-ref ref="ERROR"/>
+	</root>
+</log4j:configuration>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

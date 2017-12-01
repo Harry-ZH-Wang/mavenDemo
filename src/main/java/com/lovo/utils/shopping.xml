@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shopping>
+	<product code="1">
+		<name>薯片</name>
+		<price>15</price>
+		<factory>乐事</factory>
+	</product>
+	<product code="2">
+		<name>可乐</name>
+		<price>3</price>
+		<factory>可口可乐</factory>
+	
+	</product>
+
+</shopping>
