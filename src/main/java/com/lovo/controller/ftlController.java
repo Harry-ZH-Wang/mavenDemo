@@ -56,5 +56,12 @@ public class ftlController {
     	
     	return "expressionUser";
     }
+    
+    @RequestMapping(value="/expressionAssagin.do")
+    public String expressionAssagin(HttpServletRequest requset,HttpServletResponse response,Model mode)
+    {
+    	mode.addAttribute("root", "后台封装的变量");
+    	return "expressionAssagin";
+    }
 
 }

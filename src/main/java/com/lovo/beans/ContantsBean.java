@@ -136,10 +136,11 @@ public class ContantsBean {
 		this.value = value;
 	}
 	
-/*	public static void main(String[] args) {
+	public static void main(String[] args) {
 		ContantsBean test = new ContantsBean("language");
 		test.setKey("01");
+		System.out.println(ContantsBean.class.getName());
 		System.out.println(test.getValue());
 	}
-	*/
+	
 }
