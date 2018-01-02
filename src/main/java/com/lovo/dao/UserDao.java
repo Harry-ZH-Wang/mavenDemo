@@ -14,7 +14,13 @@ public interface UserDao {
 	 */
 	public int batchAddUser(List<UserBean> users);
 	
+	/**
+	 * 悲观锁查询
+	 * @param name
+	 * @return
+	 */
 	public List<UserBean> selectUserByName(String name);
+	
 	
 	public void updateUserByName(Map<String, String> date);
 

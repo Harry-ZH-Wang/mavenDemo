@@ -25,7 +25,7 @@ public class UserDaoImpl implements UserDao {
 
 	@Override
 	public List<UserBean> selectUserByName(String name) {
-		// TODO Auto-generated method stub
+		// 此方法加悲观锁 for update
 		return userMapper.selectUserByName(name);
 	}
 

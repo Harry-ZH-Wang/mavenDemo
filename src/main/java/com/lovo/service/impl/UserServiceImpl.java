@@ -21,6 +21,7 @@ public class UserServiceImpl implements IUserService {
 	
 	@Override
 	public void updateUserByName(Map<String, String> date) {
+		//悲观锁查询，模拟先查询，锁表然后再更新
 		List<UserBean> userList = userDao.selectUserByName(date.get("name"));
 		System.out.println(userList);
 		userDao.updateUserByName(date);
