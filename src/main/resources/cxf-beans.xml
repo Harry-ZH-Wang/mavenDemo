@@ -14,19 +14,20 @@
  http://cxf.apache.org/jaxws
  http://cxf.apache.org/schemas/jaxws.xsd">
 
-	<!--CXF配置 这里因为是3.x的CXF 只需要引用一个文件就好-->
+	<!--CXF配置 这里因为是3.x的CXF 只需要引用一个文件就好 -->
 	<import resource="classpath:META-INF/cxf/cxf.xml"></import>
-	
-	
+
+
 
 	<!-- id是接口名，不重复就好，serviceClass 是接口的路径，address是对外暴露的地址名，bean classs是引用的接口的实现类 -->
- 	 <jaxws:server id="helloService" serviceClass="com.lovo.webservice.IHelloService" address="/HelloService">
+	<jaxws:server id="helloService" serviceClass="com.lovo.webservice.IHelloService"
+		address="/HelloService">
 		<jaxws:serviceBean>
 			<bean class="com.lovo.webservice.impl.HelloServiceImpl"></bean>
 		</jaxws:serviceBean>
-	</jaxws:server> 
-	
-	
+	</jaxws:server>
+
+
 </beans>
 
 

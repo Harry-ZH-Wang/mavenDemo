@@ -1,6 +1,7 @@
 package com.lovo.dao.impl;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.annotation.Resource;
 
@@ -20,6 +21,18 @@ public class UserDaoImpl implements UserDao {
 	public int batchAddUser(List<UserBean> users) {
 		// TODO Auto-generated method stub
 		return userMapper.batchAddUser(users);
+	}
+
+	@Override
+	public List<UserBean> selectUserByName(String name) {
+		// TODO Auto-generated method stub
+		return userMapper.selectUserByName(name);
+	}
+
+	@Override
+	public void updateUserByName(Map<String, String> date) {
+		userMapper.updateUserByName(date);
+		
 	}
 
 }

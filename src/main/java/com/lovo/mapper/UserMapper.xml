@@ -3,6 +3,13 @@
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.lovo.mapper.UserMapper">
 
+   <resultMap type="UserBean" id="user">
+		<id property="id" column="id" />
+		<result property="name" column="u_name" javaType="String"/>
+		<result property="sex" column="u_sex" javaType="String"/>
+		<result property="age" column="u_age" javaType="java.lang.Long"/>
+	</resultMap>
+
 	<insert id="batchAddUser" parameterType="java.util.List">
 		insert into t_user (u_id, u_name,u_sex,u_age)
 		(select
@@ -18,5 +25,14 @@
 		)
 
 	</insert>
+	
+	<select id ="selectUserByName" resultMap="user"  parameterType="UserBean">
+		select t.u_id,t.u_name,t.u_sex,t.u_age from t_user t where t.u_name = #{name} for update
+		
+	</select>
+	
+	<update id="updateUserByName"  parameterType="java.util.Map">
+ 		update t_user t set t.u_age = #{age} where t.u_name =#{name}
+    </update>
 
 </mapper>

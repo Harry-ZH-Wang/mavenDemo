@@ -1,6 +1,7 @@
 package com.lovo.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import com.lovo.beans.UserBean;
 
@@ -12,5 +13,9 @@ public interface UserDao {
 	 * @return
 	 */
 	public int batchAddUser(List<UserBean> users);
+	
+	public List<UserBean> selectUserByName(String name);
+	
+	public void updateUserByName(Map<String, String> date);
 
 }

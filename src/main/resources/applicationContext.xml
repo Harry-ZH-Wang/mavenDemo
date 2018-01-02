@@ -28,7 +28,7 @@
 		<property name="driverClass" value="oracle.jdbc.driver.OracleDriver"></property>
 		<property name="jdbcUrl" value="jdbc:oracle:thin:@localhost:1521:oracle"></property>
 		<property name="user" value="system"></property>
-		<property name="password" value="Password01"></property>
+		<property name="password" value="Password"></property>
 		<property name="initialPoolSize" value="15"></property><!-- 初始化连接数的数量 -->
 		<property name="minPoolSize" value="15"></property>
 		<property name="maxPoolSize" value="100"></property>
@@ -65,26 +65,26 @@
 		<tx:attributes>
 			<tx:method name="*" read-only="true"></tx:method>
 			<tx:method name="add*" read-only="false" propagation="REQUIRED"
-				isolation="REPEATABLE_READ" rollback-for="java.lang.Exception"></tx:method>
+				isolation="READ_COMMITTED" rollback-for="java.lang.Exception"></tx:method>
 			<tx:method name="save*" read-only="false" propagation="REQUIRED"
-				isolation="REPEATABLE_READ" rollback-for="java.lang.Exception"></tx:method>
+				isolation="READ_COMMITTED" rollback-for="java.lang.Exception"></tx:method>
 			<tx:method name="insert*" read-only="false" propagation="REQUIRED"
-				isolation="REPEATABLE_READ" rollback-for="java.lang.Exception"></tx:method>
+				isolation="READ_COMMITTED" rollback-for="java.lang.Exception"></tx:method>
 
 			<tx:method name="update*" read-only="false" propagation="REQUIRED"
-				isolation="REPEATABLE_READ" rollback-for="java.lang.Exception"></tx:method>
+				isolation="READ_COMMITTED" rollback-for="java.lang.Exception"></tx:method>
 			<tx:method name="modify*" read-only="false" propagation="REQUIRED"
-				isolation="REPEATABLE_READ" rollback-for="java.lang.Exception"></tx:method>
+				isolation="READ_COMMITTED" rollback-for="java.lang.Exception"></tx:method>
 			<tx:method name="change*" propagation="REQUIRED" read-only="false"
 				rollback-for="java.lang.Exception" isolation="REPEATABLE_READ"></tx:method>
 
 			<tx:method name="delete*" read-only="false" propagation="REQUIRED"
-				isolation="REPEATABLE_READ" rollback-for="java.lang.Exception"></tx:method>
+				isolation="READ_COMMITTED" rollback-for="java.lang.Exception"></tx:method>
 			<tx:method name="remove*" read-only="false" propagation="REQUIRED"
-				isolation="REPEATABLE_READ" rollback-for="java.lang.Exception"></tx:method>
+				isolation="READ_COMMITTED" rollback-for="java.lang.Exception"></tx:method>
 			<!-- 添加了一个删除方法的命名 -->
 			<tx:method name="del*" read-only="false" propagation="REQUIRED"
-				isolation="REPEATABLE_READ" rollback-for="java.lang.Exception"></tx:method>
+				isolation="READ_COMMITTED" rollback-for="java.lang.Exception"></tx:method>
 
 			<tx:method name="select*" read-only="true" propagation="SUPPORTS"></tx:method>
 			<tx:method name="find*" read-only="true" propagation="SUPPORTS"></tx:method>
