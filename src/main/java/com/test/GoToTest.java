@@ -6,6 +6,7 @@ public class GoToTest {
 		//测试循环过程中使用lable跳出的顺序
 		int num = 0;
 		System.out.println("outer 标记的位置");
+		// lable 标签，名字可以自己取
 		outer:
 		while(true)
 		{
@@ -18,6 +19,11 @@ public class GoToTest {
 				{
 					System.out.println("跳出本轮循环，continue");
 					continue;
+				}
+				if(num == 3)
+				{
+					System.out.println("跳转到标签位置，continue outer");
+					continue outer;
 				}
 				if(num == 4)
 				{
