@@ -272,6 +272,22 @@
 			<version>1.9.5</version>
 			<scope>test</scope>
 		</dependency>
+		<!-- rar解压 -->
+		<dependency>
+			<groupId>com.github.axet</groupId>
+			<artifactId>java-unrar</artifactId>
+			<version>1.7.0-3</version>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.tika</groupId>
+			<artifactId>tika-core</artifactId>
+			<version>1.17</version>
+		</dependency>
+		<dependency>
+			<groupId>ant</groupId>
+			<artifactId>ant</artifactId>
+			<version>1.6.5</version>
+		</dependency>
 	</dependencies>
 	<build>
 		<finalName>mavenDemo</finalName>
@@ -286,18 +302,18 @@
 					<encoding>UTF-8</encoding>
 				</configuration>
 			</plugin>
-			<plugin>  
- <groupId>org.apache.maven.plugins</groupId>  
- <artifactId>maven-surefire-plugin</artifactId>  
- <version>2.10</version>  
- <dependencies>  
-   <dependency>  
-     <groupId>org.apache.maven.surefire</groupId>  
-     <artifactId>surefire-junit4</artifactId>  
-     <version>2.10</version>  
-   </dependency>  
- </dependencies>  
-</plugin> 
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>2.10</version>
+				<dependencies>
+					<dependency>
+						<groupId>org.apache.maven.surefire</groupId>
+						<artifactId>surefire-junit4</artifactId>
+						<version>2.10</version>
+					</dependency>
+				</dependencies>
+			</plugin>
 		</plugins>
 	</build>
 </project>

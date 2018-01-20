@@ -1,3 +1,3 @@
 eclipse.preferences.version=1
-validator.Checked=src/main/webapp/static/myjs,src/main/webapp/static/js
+validator.Checked=src/main/resources/cxf-beans.xml,src/main/webapp/static/js,src/main/webapp/static/myjs
 validator.Unchecked=

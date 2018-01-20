@@ -60,56 +60,55 @@
 			value="org.springframework.web.servlet.view.JstlView"></property>
 		<property name="prefix" value="/WEB-INF/JSP/"></property>
 		<property name="suffix" value=".jsp"></property>
-		<property name="order" value="1"/>
+		<property name="order" value="1" />
 	</bean>
-	
-    <!-- 视图解析器 FTL -->
-    <bean id="viewResolverFtl" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.freemarker.FreeMarkerView"/>
-        <property name="contentType" value="text/html; charset=UTF-8"/>
-        <!-- 将请求和会话属性作为变量暴露给FreeMarker模板使用。要做到这一点，
-                       可以设置exposeRequestAttributes或者exposeSessionAttributes为true 
-        -->
-        <property name="exposeRequestAttributes" value="true" />
-        <property name="exposeSessionAttributes" value="true" />
-        <!-- 使用这些宏，必须设置FreeMarkerViewResolver的exposeMacroHelpers属性为true -->  
-        <property name="exposeSpringMacroHelpers" value="true" />
-        <!-- 使用缓存 -->
-        <property name="cache" value="true" />
-        <property name="suffix" value=".ftl" />
-        <property name="order" value="0"/>
-    </bean>
-    <!-- 配置freeMarker的模板路径 -->
-    <bean id="freemarkerConfig" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
-        <property name="templateLoaderPath" value="/WEB-INF/FTL/"/>
-        <property name="freemarkerVariables">
-            <map>
-                <entry key="xml_escape" value-ref="fmXmlEscape" />
-            </map>
-        </property>
-        <property name="defaultEncoding" value="UTF-8"/>
-        <!-- FreeMarker默认每隔5秒检查模板是否被更新，如果已经更新了，就会重新加载并分析模板。 
-                       但经常检查模板是否更新可能比较耗时。如果你的应用运行在生产模式下，而且你预期模板不会经常更新，   
-           	 则可以将更新的延迟时间延长至一个小时或者更久。 可以通过为freemarkerSettings属性设置template_update_delay达到这一目的 
-        -->  
-        <property name="freemarkerSettings">
-            <props>
-                <prop key="template_update_delay">1</prop>
-                <!-- 设置标签类型 两种：[] 和 <> 。[] 这种标记解析要快些 --> 
-                <prop key="tag_syntax">auto_detect</prop> 
-                <prop key="default_encoding">UTF-8</prop>  
-                <prop key="output_encoding">UTF-8</prop>  
-                <prop key="locale">zh_CN</prop>
-                <!-- 设置时间格式 -->
-                <prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
-                <prop key="date_format">yyyy-MM-dd</prop>
-                <!-- 设置数字格式 -->  
-                <prop key="number_format">#.##</prop>
-                <!-- 可以满足一般需要。默认情况变量为null则替换为空字符串，如果需要自定义，写上${empty!"EmptyValue of fbysss"}的形式即可  -->
-            </props>
-        </property>
-    </bean>
-    <bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape"/>
+
+	<!-- 视图解析器 FTL -->
+	<bean id="viewResolverFtl"
+		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.freemarker.FreeMarkerView" />
+		<property name="contentType" value="text/html; charset=UTF-8" />
+		<!-- 将请求和会话属性作为变量暴露给FreeMarker模板使用。要做到这一点， 可以设置exposeRequestAttributes或者exposeSessionAttributes为true -->
+		<property name="exposeRequestAttributes" value="true" />
+		<property name="exposeSessionAttributes" value="true" />
+		<!-- 使用这些宏，必须设置FreeMarkerViewResolver的exposeMacroHelpers属性为true -->
+		<property name="exposeSpringMacroHelpers" value="true" />
+		<!-- 使用缓存 -->
+		<property name="cache" value="true" />
+		<property name="suffix" value=".ftl" />
+		<property name="order" value="0" />
+	</bean>
+	<!-- 配置freeMarker的模板路径 -->
+	<bean id="freemarkerConfig"
+		class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+		<property name="templateLoaderPath" value="/WEB-INF/FTL/" />
+		<property name="freemarkerVariables">
+			<map>
+				<entry key="xml_escape" value-ref="fmXmlEscape" />
+			</map>
+		</property>
+		<property name="defaultEncoding" value="UTF-8" />
+		<!-- FreeMarker默认每隔5秒检查模板是否被更新，如果已经更新了，就会重新加载并分析模板。 但经常检查模板是否更新可能比较耗时。如果你的应用运行在生产模式下，而且你预期模板不会经常更新， 
+			则可以将更新的延迟时间延长至一个小时或者更久。 可以通过为freemarkerSettings属性设置template_update_delay达到这一目的 -->
+		<property name="freemarkerSettings">
+			<props>
+				<prop key="template_update_delay">1</prop>
+				<!-- 设置标签类型 两种：[] 和 <> 。[] 这种标记解析要快些 -->
+				<prop key="tag_syntax">auto_detect</prop>
+				<prop key="default_encoding">UTF-8</prop>
+				<prop key="output_encoding">UTF-8</prop>
+				<prop key="locale">zh_CN</prop>
+				<!-- 设置时间格式 -->
+				<prop key="datetime_format">yyyy-MM-dd HH:mm:ss</prop>
+				<prop key="date_format">yyyy-MM-dd</prop>
+				<!-- 设置数字格式 -->
+				<prop key="number_format">#.##</prop>
+				<!-- 可以满足一般需要。默认情况变量为null则替换为空字符串，如果需要自定义，写上${empty!"EmptyValue of fbysss"}的形式即可 -->
+			</props>
+		</property>
+	</bean>
+	<bean id="fmXmlEscape" class="freemarker.template.utility.XmlEscape" />
 
 	<!-- 配置MultipartResolver 用于文件上传 使用spring的CommosMultipartResolver 说明： p:defaultEncoding="UTF-8"：这里设置默认的文件编码为UTF-8，必须与用户JSP的默认编码一致； 
 		p:maxUploadSize="5000000"：指定文件上传大小，单位为字节； p:uploadTempDir="fileUpload/temp"：文件上传临时目录，上传完成后，就会将临时文件删除； -->

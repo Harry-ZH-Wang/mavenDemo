@@ -100,7 +100,14 @@
 		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods"></aop:advisor>
 	</aop:config>
 
-
+	<!-- 配置transactionTemplate -->  
+	<bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">  
+    	<property name="transactionManager" ref="txManage"></property>  
+    	<!--定义事务隔离级别,-1表示使用数据库默认级别-->  
+    	<property name="readOnly" value="false"></property>  
+    	<property name="isolationLevelName" value="ISOLATION_DEFAULT"></property>  
+    	<property name="propagationBehaviorName" value="PROPAGATION_REQUIRED"></property>  
+	</bean>  
 
 	<!-- 开启切面功能 -->
 	<aop:aspectj-autoproxy />

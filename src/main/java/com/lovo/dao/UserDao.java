@@ -24,4 +24,8 @@ public interface UserDao {
 	
 	public void updateUserByName(Map<String, String> date);
 
+	/**
+	 * 编程事物提交控制
+	 */
+	public void updateUserByNameWithTransaction(Map<String, String> date);
 }

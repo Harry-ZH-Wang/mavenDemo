@@ -2,6 +2,7 @@ package com.lovo.controller;
 
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -63,5 +64,13 @@ public class ftlController {
     	mode.addAttribute("root", "后台封装的变量");
     	return "expressionAssagin";
     }
-
+    
+    @RequestMapping(value="/ftlLable.do")
+    public String FtlLable(HttpServletRequest requset,HttpServletResponse response,Model mode)
+    {
+    	
+    	mode.addAttribute("date", new Date());
+    	mode.addAttribute("boolean",true);
+    	return "FreemarkerLable";
+    }
 }
